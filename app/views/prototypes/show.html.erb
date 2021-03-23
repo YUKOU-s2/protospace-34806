@@ -47,18 +47,15 @@
               </strong>
           <% end %>
         <%# // ログインしているユーザーには上記を表示する %>
-         <%  current_user.id == @prototype.user_id %> 
         <ul class="comments_lists">
           <%# 投稿に紐づくコメントを一覧する処理を記述する %>
             <li class="comments_list">
                 <% @comments_list.each do |comment| %><li>
-                 <%= link_to comment.user.name, user_path(current_user.id), class: :comment_user %>
+                 <%= link_to comment.user.name, user_path(comment.user.id), class: :comment_user %>
                  <%= comment.text %>
                </li>
                <% end %>
               </li>
-             <%# <%= " コメントのテキスト "%>
-               <%= link_to "（ ユーザー名 ）", user_path(current_user.id), class: :comment_user %>
             </li>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         </ul>
